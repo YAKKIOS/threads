@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GEFJ35C3CN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GEFJ35C3CN');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Johnson | UX Designer</title>
+
+    <meta property="og:title" content="Jack Johnson | UX Designer">
+    <meta property="og:description" content="Portfolio of a Lead User Experience Designer based in Gateshead, UK.">
+    <meta property="og:image" content="https://www.jackjohnson.fyi/assets/images/shared/social-banner.jpg">
+    <meta property="og:url" content="https://www.jackjohnson.fyi">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.jackjohnson.fyi/assets/images/shared/social-banner.jpg">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <script src="assets/js/script.js" defer></script>
+</head>
+<body>
+
+    <body ontouchstart="">
+
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+        <button class="lightbox-nav-btn prev-btn" onclick="changeSlide(-1, event)">
+            <span class="material-icons-round">arrow_back_ios_new</span>
+        </button>
+        
+        <img class="lightbox-content" id="lightbox-img">
+        
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+        
+        <button class="lightbox-nav-btn next-btn" onclick="changeSlide(1, event)">
+            <span class="material-icons-round">arrow_forward_ios</span>
+        </button>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="one.png" alt="Logo" class="site-logo">
+        </div>
+        <div class="page-title">Projects</div>
+        <a href="https://www.linkedin.com/in/jack-johnson-758879113/" target="_blank" class="contact-btn">Contact Me</a>
+    </nav>
+
+    <aside class="sidebar">
+        <a href="index.html" class="nav-item-wrapper">
+            <span class="material-icons-round nav-icon">home</span>
+            <span class="tooltip">Home</span>
+        </a>
+        <a href="projects.html" class="nav-item-wrapper active-page">
+            <span class="material-icons-round nav-icon">grid_view</span>
+            <span class="tooltip">Projects</span>
+        </a>
+        <a href="https://www.linkedin.com/in/jack-johnson-758879113/" target="_blank" class="nav-item-wrapper highlighted">
+            <span class="material-icons-round nav-icon" style="color:white;">send</span>
+            <span class="tooltip">Contact Me</span>
+        </a>
+        <a href="about.html" class="nav-item-wrapper">
+            <span class="material-icons-round nav-icon">person_outline</span>
+            <span class="tooltip">About</span>
+        </a>
+        <a href="writing.html" class="nav-item-wrapper">
+            <span class="material-icons-round nav-icon">edit_note</span>
+            <span class="tooltip">Writing</span>
+        </a>
+    </aside>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item-wrapper active-page">
+            <span class="material-icons-round nav-icon">home</span>
+        </a>
+        <a href="projects.html" class="nav-item-wrapper">
+            <span class="material-icons-round nav-icon">grid_view</span>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="nav-item-wrapper highlighted">
+            <span class="material-icons-round nav-icon" style="color:white;">send</span>
+        </a>
+        <a href="about.html" class="nav-item-wrapper">
+            <span class="material-icons-round nav-icon">person_outline</span>
+        </a>
+        <a href="writing.html" class="nav-item-wrapper">
+            <span class="material-icons-round nav-icon">edit_note</span>
+        </a>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="feed-container">
+            
+
+
+           
+                
+
+            <div class="thread-block" onclick="window.location.href='projects/aldi-lookup-app.html'">
+                <img src="jack.png" alt="Me" class="avatar">
+                <div class="content">
+                    <div class="header-row">
+                        <span class="name">jack_johnson</span>
+                        <span class="material-icons-round verified-icon">verified</span>
+                        <span class="timestamp">4h</span>
+                    </div>
+                    <div class="post-text">
+                        A fun way for Aldi floor staff to learn product look up codes.
+                    </div>
+                    
+                    <div class="post-image-container" onclick="event.stopPropagation()">
+                        <img src="assets\images\projects\Aldi\aldi-01.webp"  
+                                alt="Project Screenshot" 
+                                class="post-image"
+                                data-caption="Final render of the project"
+                                onclick="openLightbox(this, event)">
+                    </div>
+                    
+                    <div class="actions-row">
+                        <button class="action-btn like-group" onclick="toggleLike(this, event)">
+                            <span class="material-icons-round action-icon-img">favorite_border</span>
+                            <span class="like-count"></span>
+                        </button>
+                        <button class="action-btn" onclick="event.stopPropagation()">
+                        <span class="material-icons-round action-icon-img">chat_bubble_outline</span>
+                        </button>
+                        <button class="action-btn" onclick="event.stopPropagation()"><span class="material-icons-round action-icon-img">cached</span></button>
+                        <button class="action-btn" onclick="event.stopPropagation()"><span class="material-icons-round action-icon-img">send</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="thread-block" onclick="window.location.href='projects/appointedd-events-scanning.html'">
+                <img src="jack.png" alt="Me" class="avatar">
+                <div class="content">
+                    <div class="header-row">
+                        <span class="name">jack_johnson</span>
+                        <span class="material-icons-round verified-icon">verified</span>
+                        <span class="timestamp">4h</span>
+                    </div>
+                    <div class="post-text">
+                        Introducing digital ticketing and QR code scanning for events.
+                    </div>
+                    
+                    <div class="post-image-container" onclick="event.stopPropagation()">
+                        <img src="assets\images\projects\Appointedd\appointedd-01.webp"  
+                                alt="Project Screenshot" 
+                                class="post-image"
+                                data-caption="Final render of the project"
+                                onclick="openLightbox(this, event)">
+                    </div>
+                    
+                    <div class="actions-row">
+                        <button class="action-btn like-group" onclick="toggleLike(this, event)">
+                            <span class="material-icons-round action-icon-img">favorite_border</span>
+                            <span class="like-count"></span>
+                        </button>
+                        <button class="action-btn" onclick="event.stopPropagation()">
+                        <span class="material-icons-round action-icon-img">chat_bubble_outline</span>
+                        </button>
+                        <button class="action-btn" onclick="event.stopPropagation()"><span class="material-icons-round action-icon-img">cached</span></button>
+                        <button class="action-btn" onclick="event.stopPropagation()"><span class="material-icons-round action-icon-img">send</span></button>
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="thread-block" onclick="window.location.href='projects/archived-work.html'">
+                <img src="jack.png" alt="Me" class="avatar">
+                <div class="content">
+                    <div class="header-row">
+                        <span class="name">jack_johnson</span>
+                        <span class="material-icons-round verified-icon">verified</span>
+                        <span class="timestamp">4h</span>
+                    </div>
+                    <div class="post-text">
+                        Some archived work
+                    </div>
+                    
+                    <div class="post-image-container" onclick="event.stopPropagation()">
+                        <img src="assets\images\projects\Archived\vigne-01.webp"  
+                                alt="Project Screenshot" 
+                                class="post-image"
+                                data-caption="Final render of the project"
+                                onclick="openLightbox(this, event)">
+                    </div>
+                    
+                    <div class="actions-row">
+                        <button class="action-btn like-group" onclick="toggleLike(this, event)">
+                            <span class="material-icons-round action-icon-img">favorite_border</span>
+                            <span class="like-count"></span>
+                        </button>
+                        <button class="action-btn" onclick="event.stopPropagation()">
+                        <span class="material-icons-round action-icon-img">chat_bubble_outline</span>
+                        </button>
+                        <button class="action-btn" onclick="event.stopPropagation()"><span class="material-icons-round action-icon-img">cached</span></button>
+                        <button class="action-btn" onclick="event.stopPropagation()"><span class="material-icons-round action-icon-img">send</span></button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </main>
