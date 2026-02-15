@@ -203,9 +203,9 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #444;
   object-fit: cover;
   flex-shrink: 0;
+  padding-top: 4px;
 }
 
 .content {
