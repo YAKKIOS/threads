@@ -248,12 +248,15 @@ body {
 
 /* 1. The Container */
 .post-image-container {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border-stroke);
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
   margin-top: 8px;
   margin-bottom: 8px;
+  max-width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   
   /* Hand Cursor */
   cursor: pointer;
@@ -275,29 +278,28 @@ body {
 /* 3. The Image Itself */
 .post-image,
 .carousel-img {
-  width: 100%;
-  height: 100%;
+width: 100%;
+  
+  /* FIXED: Tells the image to naturally keep its correct aspect ratio */
+  height: auto; 
   display: block;
-  object-fit: cover;
   
-  /* Prevent 'Ghost' Dragging */
+  /* Because the box is now tightly hugging the image, we can safely use cover */
+  object-fit: cover; 
+  
   -webkit-user-drag: none;
-  
-  /* DELETED: pointer-events: none; <--- This was the culprit! */
-  
-  /* Ensure the image itself shows the hand cursor */
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 /* --- Carousel Specifics --- */
 .carousel-item {
-  min-width: 280px;
-  height: 200px;
+width: 75vw; 
+  max-width: 280px; 
+  height: auto; 
   border-radius: 12px;
   border: 1px solid var(--border-stroke);
   overflow: hidden;
   flex-shrink: 0;
-  
   transition: transform 0.1s ease-out;
   cursor: pointer;
 }
