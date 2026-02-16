@@ -244,9 +244,12 @@ body {
   top: 1px; /* Micro-adjustment: pushes it down 1px if it sits too high */
 }
 
-/* --- Images & Carousel (The Stable Reset) --- */
+/* --- Images & Carousel (Threads-Accurate) --- */
 
-/* 1. Single Post Containers */
+/* =========================================
+   1. STANDALONE IMAGES (Natural Aspect Ratio)
+   ========================================= */
+
 .post-image-container {
   width: 100%;
   border-radius: 12px;
@@ -255,16 +258,18 @@ body {
   margin-top: 8px;
   margin-bottom: 8px;
   
-  /* CAPPING THE HEIGHT: Stops vertical images from becoming massive */
-  max-height: 500px; 
+  /* User Spec: Capped at 430px height */
+  max-height: 430px; 
+  
+  /* No fixed height, so the box hugs the image naturally */
+  height: auto;
+  
   background-color: var(--bg-container);
   
   cursor: pointer;
   transition: transform 0.1s ease-out;
   -webkit-user-select: none;
   user-select: none;
-  
-  /* (Removed the flex properties that were causing the massive blank gaps below landscape images) */
 }
 
 .post-image-container:active {
@@ -272,21 +277,25 @@ body {
   opacity: 0.95;
 }
 
-/* 2. Single Post Images */
 .post-image {
   width: 100%;
+  
+  /* Let the image define the height, up to the container's max */
   height: auto; 
-  max-height: 500px; /* Enforce the cap */
   display: block;
   
-  /* Cover ensures the box is filled. If a vertical image hits 500px, it gracefully crops the top/bottom like a native app */
+  /* Cover ensures no tiny gaps, but generally shows the whole image */
   object-fit: cover; 
   
   -webkit-user-drag: none;
   cursor: pointer; 
 }
 
-/* 3. The Carousel Row */
+
+/* =========================================
+   2. CAROUSEL (Fixed Portrait Boxes)
+   ========================================= */
+
 .carousel-container {
   display: flex;
   gap: 8px;
@@ -298,27 +307,26 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   
-  /* THE HALFWAY HOUSE: Makes all boxes in the row match the tallest item */
-  align-items: stretch; 
+  /* Align items to the top of the row */
+  align-items: flex-start; 
 }
 .carousel-container::-webkit-scrollbar { display: none; }
 
-/* 4. Carousel Cards */
 .carousel-item {
-  width: 75vw; 
-  max-width: 280px; 
+  /* Responsive width, capped near your suggestion of 210px */
+  width: 60vw; 
+  max-width: 220px;
   
-  /* Let the flexbox 'stretch' dictate the height automatically */
-  height: auto; 
-  max-height: 500px; 
+  /* FIXED HEIGHT: This is the key. All carousel items are this tall. */
+  /* Your suggestion of 280px is perfect. */
+  height: 280px; 
   
   border-radius: 12px;
   border: 1px solid var(--border-stroke);
   overflow: hidden;
   flex-shrink: 0;
   
-  /* Gives the letterboxed space around landscape images a nice dark fill */
-  background-color: #111; 
+  background-color: var(--bg-container);
   
   transition: transform 0.1s ease-out;
   cursor: pointer;
@@ -329,33 +337,18 @@ body {
   opacity: 0.95;
 }
 
-/* 5. Carousel Images */
 .carousel-img {
   width: 100%;
-  height: 100%; /* Fill the stretched card completely */
+  height: 100%; /* Force the image to fill the fixed-height card */
   display: block;
   
-  /* 'contain' ensures the WHOLE image is visible without extreme zooming */
-  /* Landscape images will sit perfectly in the center of the dark box */
-  object-fit: contain; 
+  /* 'cover' is what the real Threads app does. */
+  /* It makes a landscape image fill the portrait box by cropping the sides. */
+  object-fit: cover; 
   
   -webkit-user-drag: none;
   cursor: pointer; 
 }
-
-/* Container Layout */
-.carousel-container {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  max-width: 100%;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.carousel-container::-webkit-scrollbar { display: none; }
 
 /* --- Actions --- */
 .actions-row { display: flex; align-items: center; gap: 4px; margin-top: 0px; margin-left: -8px;}
