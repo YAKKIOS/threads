@@ -312,24 +312,28 @@ body {
 }
 .carousel-container::-webkit-scrollbar { display: none; }
 
+/* =========================================
+   CAROUSEL (Fixed Height, Dynamic Width)
+   ========================================= */
+
 .carousel-item {
-  /* Responsive width, capped near your suggestion of 210px */
-  width: 60vw; 
-  max-width: 220px;
-  
-  /* FIXED HEIGHT: This is the key. All carousel items are this tall. */
-  /* Your suggestion of 280px is perfect. */
+  /* 1. Lock the Height */
   height: 280px; 
+  
+  /* 2. Let the width flow naturally based on the image inside */
+  width: auto; 
+  
+  /* 3. Stop super-wide landscape images from breaking out of mobile screens */
+  max-width: 85vw; 
   
   border-radius: 12px;
   border: 1px solid var(--border-stroke);
   overflow: hidden;
   flex-shrink: 0;
-  
   background-color: var(--bg-container);
-  
-  transition: transform 0.1s ease-out;
   cursor: pointer;
+  
+  /* (Removed the :active transform scale to permanently kill the scroll flicker!) */
 }
 
 .carousel-item:active {
@@ -338,16 +342,19 @@ body {
 }
 
 .carousel-img {
-  width: 100%;
-  height: 100%; /* Force the image to fill the fixed-height card */
+  /* Force the image to match the 280px container height */
+  height: 100%; 
+  
+  /* Maintain the natural aspect ratio width based on that 280px height */
+  width: auto; 
+  
   display: block;
   
-  /* 'cover' is what the real Threads app does. */
-  /* It makes a landscape image fill the portrait box by cropping the sides. */
+  /* If the landscape image hits the 85vw max-width on a small phone, 
+     'cover' kicks in to crop the edges gracefully just like the native app. */
   object-fit: cover; 
   
   -webkit-user-drag: none;
-  cursor: pointer; 
 }
 
 /* --- Actions --- */
