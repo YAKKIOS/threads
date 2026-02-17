@@ -317,23 +317,19 @@ body {
    ========================================= */
 
 .carousel-item {
-  /* 1. Lock the Height */
   height: 280px; 
   
-  /* 2. Let the width flow naturally based on the image inside */
-  width: auto; 
+  /* CRITICAL FIX 1: Forces the box to wrap exactly to the image's size */
+  width: max-content; 
   
-  /* 3. Stop super-wide landscape images from breaking out of mobile screens */
-  max-width: 85vw; 
+  /* CRITICAL FIX 2: Tells Flexbox "Do not attempt to shrink or stretch this item ever" */
+  flex: 0 0 auto; 
   
   border-radius: 12px;
   border: 1px solid var(--border-stroke);
   overflow: hidden;
-  flex-shrink: 0;
   background-color: var(--bg-container);
   cursor: pointer;
-  
-  /* (Removed the :active transform scale to permanently kill the scroll flicker!) */
 }
 
 .carousel-item:active {
@@ -342,21 +338,22 @@ body {
 }
 
 .carousel-img {
-  /* Force the image to match the 280px container height */
-  height: 100%; 
+  /* Lock the height to match the container perfectly */
+  height: 280px; 
   
-  /* Maintain the natural aspect ratio width based on that 280px height */
+  /* Let the width flow naturally to maintain aspect ratio */
   width: auto; 
   
-  display: block;
+  /* CRITICAL FIX 3: Move the mobile cap directly to the image */
+  max-width: 85vw; 
   
-  /* If the landscape image hits the 85vw max-width on a small phone, 
-     'cover' kicks in to crop the edges gracefully just like the native app. */
+  /* If a landscape image hits that 85vw cap on a small phone, 
+     it will gracefully crop the sides instead of squishing */
   object-fit: cover; 
   
+  display: block;
   -webkit-user-drag: none;
 }
-
 /* --- Actions --- */
 .actions-row { display: flex; align-items: center; gap: 4px; margin-top: 0px; margin-left: -8px;}
 .action-btn { background: transparent; border: none; cursor: pointer; height: 36px; border-radius: 18px; padding: 0 8px; display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--text-primary); transition: background-color 0.2s; min-width: 36px; }
