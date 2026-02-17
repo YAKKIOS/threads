@@ -100,6 +100,8 @@
 
             modal.style.display = 'flex';
             updateLightboxImage();
+
+            document.body.style.overflow = 'hidden';
         }
 
         function changeSlide(direction, event) {
@@ -123,16 +125,7 @@
                 return;
             }
             document.getElementById('lightbox').style.display = 'none';
+
+                document.body.style.overflow = '';
         }
 
-// --- Toast Logic ---
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.innerText = message;
-    toast.className = "toast show";
-    
-    // Hide it after 3 seconds
-    setTimeout(function(){ 
-        toast.className = toast.className.replace("show", ""); 
-    }, 3000);
-}
