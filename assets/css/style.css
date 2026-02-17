@@ -306,6 +306,7 @@ body {
   margin-bottom: 8px;
   max-width: 100%;
   scrollbar-width: none;
+  cursor: grab;
   -ms-overflow-style: none;
   
   /* Align items to the top of the row */
@@ -331,6 +332,10 @@ body {
   overflow: hidden;
   background-color: var(--bg-container);
   cursor: pointer;
+}
+
+.carousel-container.active {
+  cursor: grabbing; 
 }
 
 .carousel-item:active {
