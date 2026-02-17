@@ -75,21 +75,27 @@
         let currentGroup = []; 
         let currentIndex = 0;
 
-        function openLightbox(img, event) {
+function openLightbox(img, event) {
             if(event) { event.preventDefault(); event.stopPropagation(); }
             
             const modal = document.getElementById('lightbox');
-            const groupName = img.getAttribute('data-group');
             
-            if (groupName) {
-                const allImages = document.querySelectorAll(`img[data-group="${groupName}"]`);
+            // 1. Check if the image lives inside a carousel row
+            const parentCarousel = img.closest('.carousel-container');
+            
+            if (parentCarousel) {
+                // 2. If it does, ONLY grab the images inside this specific row
+                const allImages = parentCarousel.querySelectorAll('.carousel-img');
+                
                 currentGroup = Array.from(allImages).map(el => ({
                     src: el.src,
                     caption: el.getAttribute('data-caption') || ''
                 }));
                 currentIndex = currentGroup.findIndex(item => item.src === img.src);
                 modal.classList.remove('single-image');
+                
             } else {
+                // 3. If it's not in a carousel, treat it as a single standalone image
                 currentGroup = [{
                     src: img.src,
                     caption: img.getAttribute('data-caption') || ''
@@ -100,7 +106,8 @@
 
             modal.style.display = 'flex';
             updateLightboxImage();
-
+            
+            // Lock the background from scrolling
             document.body.style.overflow = 'hidden';
         }
 
